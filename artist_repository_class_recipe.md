@@ -155,19 +155,14 @@ These examples will later be encoded as RSpec tests.
 # 1
 # Get all students
 
-repo = StudentRepository.new
+repo = ArtistRepository.new
 
-students = repo.all
+aritists = repo.all
 
-students.length # =>  2
+artists.length # => 2
+artist.first.id # => '1'
+artist.find.name # => 'Pixies'
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
-
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
 
 # 2
 # Get a single student
