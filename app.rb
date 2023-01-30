@@ -22,3 +22,9 @@ album_repository = AlbumRepository.new
 album_repository.all.each do |album|
   p album
 end
+
+album = album_repository.find(1)
+p album.id
+p album.title
+p album.release_year
+p album.artist_id

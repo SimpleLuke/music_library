@@ -24,4 +24,15 @@ describe AlbumRepository do
     expect(albums.first.release_year).to eq '1989'
     expect(albums.first.artist_id).to eq '1'
   end  
+
+  it 'returns an album object' do
+    repo = AlbumRepository.new
+
+    album = repo.find(1)
+
+    expect(album.id).to eq '1'
+    expect(album.title).to eq 'Doolittle'
+    expect(album.release_year).to eq '1989'
+    expect(album.artist_id).to eq '1'
+  end
 end
