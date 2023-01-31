@@ -1,5 +1,5 @@
 require 'album_repository'
-require 'album'
+# require 'album'
 
 describe AlbumRepository do
 
@@ -39,11 +39,13 @@ describe AlbumRepository do
   it 'creates an new album object' do
     repo = AlbumRepository.new
 
-    album = Album.new
+    # album = Album.new
+    #
+    # album.title = 'Trompe le Monde'
+    # album.release_year = 1991
+    # album.artist_id = 1
 
-    album.title = 'Trompe le Monde'
-    album.release_year = 1991
-    album.artist_id = 1
+    album = double :album, title:'Trompe le Monde', release_year:1991, artist_id:1
 
     repo.create(album)
 
