@@ -26,7 +26,7 @@ class AlbumRepository
     sql = 'SELECT * FROM albums WHERE id = $1;'
     params = [id]
 
-  result = DatabaseConnection.exec_params(sql,params)
+    result = DatabaseConnection.exec_params(sql,params)
 
     record = result[0]
 
@@ -35,11 +35,19 @@ class AlbumRepository
     album.title = record['title']
     album.release_year = record['release_year']
     album.artist_id = record['artist_id']
-    
+
     # p album
 
     return album 
+  end
 
+  def create(album)
+    sql = 'INSERT INTO albums (title, release_year, artist_id) VALUES ($1, $2, $3);'
+    params = [album.title, album.release_year, album.artist_id]
 
+    DatabaseConnection.exec_params(sql,params)
+    
+    return nil
+    
   end
 end

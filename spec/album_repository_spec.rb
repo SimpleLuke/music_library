@@ -1,5 +1,5 @@
 require 'album_repository'
-
+require 'album'
 
 describe AlbumRepository do
 
@@ -34,5 +34,24 @@ describe AlbumRepository do
     expect(album.title).to eq 'Doolittle'
     expect(album.release_year).to eq '1989'
     expect(album.artist_id).to eq '1'
+  end
+
+  it 'creates an new album object' do
+    repo = AlbumRepository.new
+
+    album = Album.new
+
+    album.title = 'Trompe le Monde'
+    album.release_year = 1991
+    album.artist_id = 1
+
+    repo.create(album)
+
+    all_albums = repo.all
+
+    expect(all_albums.length).to eq 3
+    expect(all_albums.last.title).to eq 'Trompe le Monde'
+    expect(all_albums.last.release_year).to eq '1991' 
+    expect(all_albums.last.artist_id).to eq '1' 
   end
 end
